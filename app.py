@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route("/<path:path>")
 def index(path=""):
     try:
-        # Возвращаем HTML-файл
         with open("templates/contacts.html", "r", encoding="utf-8") as file:
             content = file.read()
         return render_template_string(content)
@@ -17,7 +16,6 @@ def index(path=""):
 
 @app.route("/css/<path:filename>")
 def css_files(filename):
-    # Возвращаем CSS-файлы
     return send_from_directory("css", filename)
 
 
